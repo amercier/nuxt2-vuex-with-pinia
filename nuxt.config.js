@@ -11,10 +11,10 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "Official Nuxt.js starter for CodeSandBox"
-      }
+        content: "Official Nuxt.js starter for CodeSandBox",
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -29,8 +29,8 @@ export default {
   buildModules: [
     // Nuxt 2 only:
     // https://composition-api.nuxtjs.org/getting-started/setup#quick-start
-    '@nuxtjs/composition-api/module',
-    // '@pinia/nuxt',
+    "@nuxtjs/composition-api/module",
+    "@pinia/nuxt",
   ],
 
   /*
@@ -43,5 +43,5 @@ export default {
    ** Plugins to load before mounting the App
    ** Doc: https://nuxtjs.org/docs/2.x/directory-structure/plugins
    */
-  plugins: []
+  plugins: [],
 };
