@@ -1,32 +1,45 @@
 <template>
   <div>
-    Vuex: {{ vuexStatus ?? 'OFF' }}<br />
-    Pinia: {{ piniaStatus ?? 'OFF' }}
+    Vuex: {{ vuexStatus ?? "OFF" }}<br />
+    Pinia: {{ piniaStatus ?? "OFF" }}
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import {
+  mapActions as mapVuexActions,
+  mapGetters as mapVuexGetters,
+} from "vuex";
+import {
+  mapActions as mapPiniaActions,
+  mapState as mapPiniaState,
+} from "pinia";
+import { useMainStore } from "../store";
 
 export default {
   computed: {
-    ...mapGetters({
-      vuexStatus: 'status'
+    ...mapVuexGetters({
+      vuexStatus: "status",
     }),
 
-    piniaStatus() {
-      return null
-    }
+    ...mapPiniaState(useMainStore, {
+      piniaStatus: "status",
+    }),
   },
 
   mounted() {
-    this.loadVuex()
+    this.loadVuex();
+    this.loadPinia();
   },
 
   methods: {
-    ...mapActions({
-      loadVuex: 'load'
-    })
-  }
-}
+    ...mapVuexActions({
+      loadVuex: "load",
+    }),
+
+    ...mapPiniaActions(useMainStore, {
+      loadPinia: "load",
+    }),
+  },
+};
 </script>
