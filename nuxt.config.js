@@ -30,7 +30,7 @@ export default {
     // Nuxt 2 only:
     // https://composition-api.nuxtjs.org/getting-started/setup#quick-start
     "@nuxtjs/composition-api/module",
-    "@pinia/nuxt",
+    ["@pinia/nuxt", { disableVuex: false }],
   ],
 
   /*
